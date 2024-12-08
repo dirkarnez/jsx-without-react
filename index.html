@@ -16,12 +16,21 @@
 
         const createElement = (tag, props, ...children) => {
             if (typeof tag === "function") return tag(props, ...children);
-            const element = document.createElement(tag);
+            let element = undefined;
+
+            if (tag == "svg" || tag == "rect") {
+                element = document.createElementNS("http://www.w3.org/2000/svg", tag);
+            } else {
+                element = document.createElement(tag);
+            }
+            
 
             Object.entries(props || {}).forEach(([name, value]) => {
                 if (name.startsWith("on") && name.toLowerCase() in window)
                     element.addEventListener(name.toLowerCase().substr(2), value);
-                else element.setAttribute(name, value.toString());
+                else {
+                    element.setAttribute(name, value.toString());
+                }
             });
 
             children.forEach((child) => {
@@ -41,7 +50,14 @@
         const createFragment = (props, ...children) => {
           return children;
         };
-
+        
+        const SvgIcon = (props) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="467" height="462">
+                <rect x="80" y="60" width="250" height="250" rx="20" style="fill:#ff0000; stroke:#000000;stroke-width:2px;"></rect>
+                <rect x="140" y="120" width="250" height="250" rx="40" style="fill:#0000ff; stroke:#000000; stroke-width:2px; fill-opacity:0.7;" />
+            </svg>
+        );
+        
         const UsingFragment = () => (
             <div>
                 <p>This is regular paragraph</p>
@@ -50,13 +66,14 @@
                     <>
                         <p>Hello</p>
                     </>
+                    <SvgIcon/>
                     <ul>
                         {[1, 2, 3].map((item) => (
                             <li>{item}</li>
                         ))}
                     </ul>
                 </div>
-                <button onClick={() => alert("yay")}>try me</button>
+                <button onClick={() => alert("yay")}>trxxy me</button>
             </div>
         );
 
