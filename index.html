@@ -78,16 +78,20 @@
                 <button onClick={() => {alert("yaay"); array.push(4); redraw(); }}>trxxy me</button>
             </div>
         );
-
+        
         function redraw() {
             const root = document.getElementById("root");
             root.innerHTML = "";
             root.appendChild(<UsingFragment name="foo" />);
         }
         
+        redraw();
+
+        
     </script>
 </body>
 
 </html>
+
 
 
