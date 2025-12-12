@@ -75,13 +75,19 @@
                         ))}
                     </ul>
                 </div>
-                <button onClick={() => {alert("yay"); array.push(4); }}>trxxy me</button>
+                <button onClick={() => {alert("yaay"); array.push(4); redraw(); }}>trxxy me</button>
             </div>
         );
 
-        document.getElementById("root").appendChild(<UsingFragment name="foo" />);
+        function redraw() {
+            const root = document.getElementById("root");
+            root.innerHTML = "";
+            root.appendChild(<UsingFragment name="foo" />);
+        }
+        
     </script>
 </body>
 
 </html>
+
 
