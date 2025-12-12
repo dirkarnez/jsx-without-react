@@ -60,13 +60,15 @@
 
         let array = [1, 2, 3];
         
-        const UsingFragment = () => (
+        const UsingFragment = ({name}) => (
             <div>
+                <a href="https://github.com/dirkarnez/jsx-without-react" target="_blank">dirkarnez/jsx-without-react</a><br/>
                 <p>This is regular paragraph</p>
                 <div>
-                    <p>This is a paragraph in a fragment</p>
                     <>
-                        <p>Hello</p>
+                        <p>This is a paragraph in a fragment</p>
+                        <p>This is a paragraph in a fragment</p>
+                        <p>This is a paragraph in a fragment</p>
                     </>
                     <SvgIcon/>
                     <ul>
@@ -74,6 +76,7 @@
                             <li>{item}</li>
                         ))}
                     </ul>
+                    { name }
                 </div>
                 <button onClick={() => {alert("yaay"); array.push(4); redraw(); }}>trxxy me</button>
             </div>
@@ -92,6 +95,7 @@
 </body>
 
 </html>
+
 
 
 
