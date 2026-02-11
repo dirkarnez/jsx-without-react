@@ -10,6 +10,26 @@ From [How to Use JSX Without React. JSX gives us a great way to handle… | by K
 ### TODOs
 - [ ] [hubs/src/utils/jsx-entity.ts at master · Hubs-Foundation/hubs](https://github.com/Hubs-Foundation/hubs/blob/master/src/utils/jsx-entity.ts)
 - [ ] [dhow/src/jsx-runtime.js at master · kartiknair/dhow](https://github.com/kartiknair/dhow/blob/master/src/jsx-runtime.js)
+  - ```
+    function App() {
+      return <h1>Hello World</h1>;
+    }
+    
+    // Inserted by a compiler (don't import it yourself!)
+    import {jsx as _jsx} from 'react/jsx-runtime';
+    
+    function App() {
+      return _jsx('h1', { children: 'Hello world' });
+    }
+    
+    https://www.npmjs.com/package/jsx-runtime
+    https://github.com/OpenJSX
+    https://github.com/OpenJSX/jsx-to-html
+    https://github.com/OpenJSX/jsx-to-html
+    https://github.com/OpenJSX/jsx-to-idom
+    https://github.com/OpenJSX/jsx-to-dom
+    https://github.com/OpenJSX/jsx-runtime
+    ```
 
 ### Reference
 - [How to create the app using JSX without React - DEV Community](https://dev.to/devsmitra/how-to-create-the-app-using-jsx-without-react-k08)
